@@ -9,6 +9,6 @@
 // name of std namespace (default=kstd)
 #define STD kstd
 
-// Neutron.CTTI(Compile-Time Type Identifier) is RTTI like system
+// Neutron.CTTI(Compile-Time Type Identification) is RTTI like system
 // if you want to use it,define this.
 #define ENABLE_CTTI

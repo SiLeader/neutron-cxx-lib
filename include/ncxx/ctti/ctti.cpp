@@ -31,7 +31,7 @@ namespace ncxx
             return ti;
         }
 
-        template<class To> To downstatic_cast(void* from)
+        template<class To, class From> To downstatic_cast(From from)
         {
 
         }

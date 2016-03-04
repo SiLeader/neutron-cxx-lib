@@ -1,0 +1,58 @@
+//                    (C) 2016 SiLeader.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+
+#include <developer_settings.hpp>
+#include <ncxx/utility/power.hpp>
+
+#define CHAR_BIT __CHAR_BIT__
+
+//signed char
+#define SCHAR_MIN (-(__SCHAR_MAX__-1))
+#define SCHAR_MAX __SCHAR_MAX__
+
+//unsigned char
+#define UCHAR_MIN 0
+#define UCHAR_MAX ((SCHAR_MAX+1)*2-1)
+
+//char
+#ifdef __CHAR_UNSIGNED__
+#   define CHAR_MIN UCHAR_MIN
+#   define CHAR_MAX UCHAR_MAX
+#else
+#   define CHAR_MIN SCHAR_MIN
+#   define CHAR_MAX SCHAR_MAX
+#endif
+
+//short
+#define SHRT_MIN (-(__SHRT_MAX__-1))
+#define SHRT_MAX __SHRT_MAX__
+
+//unsigned short
+#define USHRT_MIN 0
+#define USHRT_MAX ((SHRT_MAX+1)*2-1)
+
+//int
+#define INT_MIN (-(__INT_MAX__-1))
+#define INT_MAX __INT_MAX__
+
+//unsigned int
+#define UINT_MIN 0
+#define UINT_MAX ((INT_MAX+1)*2-1)
+
+//long
+#define LONG_MIN (-(__LONG_MAX__-1))
+#define LONG_MAX __LONG_MAX__
+
+//unsigned long
+#define ULONG_MIN 0
+#define ULONG_MAX ((LONG_MAX+1)*2-1)
+
+//long long
+#define LLONG_MIN (-(__LONG_LONG_MAX__-1))
+#define LLONG_MAX __LONG_LONG_MAX__
+
+//unsigned long long
+#define ULLONG_MIN 0
+#define ULLONG_MAX ((LLONG_MAX+1)*2-1)

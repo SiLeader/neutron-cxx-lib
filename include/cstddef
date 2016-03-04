@@ -1,0 +1,21 @@
+//                    (C) 2016 SiLeader.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+
+#include <developer_settings.hpp>
+
+namespace STD
+{
+    using ptrdiff_t=__PTRDIFF_TYPE__;
+    using size_t=__SIZE_TYPE__;
+    using nullptr_t=decltype(nullptr);
+    typedef struct {
+        long long max_align_long_long __attribute__((__aligned__(__alignof__(long long))));
+        long double max_align_long_double __attribute__((__aligned__(__alignof__(long double))));
+    } max_align_t;
+}
+
+#define offsetof(TYPE, MEMBER) __builtin_offsetof (TYPE, MEMBER)
+
+#define NULL 0
