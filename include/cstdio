@@ -1,0 +1,30 @@
+//                    (C) 2016 SiLeader.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+#pragma once
+
+#include <developer_settings.hpp>
+
+namespace STD
+{
+    typedef struct
+    {
+        STD::size_t count;
+        char *ptr;
+        char *base;
+        STD::size_t all_size;
+        STD::uint16_t access_mode;
+        int file_desc;
+    }FILE;
+    FILE *stdin, *stdout, *stderr;
+    
+    namespace detail
+    {
+        FILE ins_stdin;
+        FILE ins_stdout;
+        FILE ins_stderr;
+    }
+    int putchar(int ch);
+    int getchar();
+}

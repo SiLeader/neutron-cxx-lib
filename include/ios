@@ -1,0 +1,80 @@
+//                    (C) 2016 SiLeader.
+// Distributed under the Boost Software License, Version 1.0.
+//    (See accompanying file LICENSE_1_0.txt or copy at
+//          http://www.boost.org/LICENSE_1_0.txt)
+#pragma once
+
+#include <developer_settings.hpp>
+#include <cstddef>
+
+namespace STD
+{
+    class ios_base
+    {
+    public:
+        using fmtflags=STD::uint32_t;
+        using iostate=STD::uint8_t;
+        using openmode=STD::uint8_t;
+        using seekdir=STD::uint8_t;
+        class Init
+        {
+        public:
+            Init();
+            ~Init();
+        };
+        using event_callback=void(*)(event ev, ios_base& str, int index);
+        enum event{erase_event, imbue_event, copyfmt_event};
+        class failure : public STD::system_error
+        {
+        public:
+            explicit failure(const STD::string& msg, const error_code& ec=io_errc::stream);
+            explicit failure(const char *msg, const error_code& ec=io_errc::stream);
+        };
+    private:
+
+    public:
+        ios_base();
+        virtual ~ios_base();
+
+
+    public:
+        constexpr sekkdir beg=0x01;
+        constexpr seekdir cur=0x02;
+        constexpr seekdir end=0x04;
+
+        constexpr openmode app=0x01;
+        constexpr openmode ate=0x02;
+        constexpr openmode binary=0x04;
+        constexpr openmode in=0x08;
+        constexpr openmode out=0x10;
+        constexpr openmode trunc=0x20;
+
+        constexpr iostate badbit=0x01;
+        constexpr iostate eofbit=0x02;
+        constexpr iostate failbit=0x04;
+
+        constexpr fmtflags boolalpha=0x00000001;
+        constexpr fmtflags dec=0x00000002;
+        constexpr fmtflags fixed=0x00000004;
+        constexpr fmtflags hex=0x00000008;
+        constexpr fmtflags internal=0x00000010;
+        constexpr fmtflags left=0x00000020;
+        constexpr fmtflags oct=0x00000040;
+        constexpr fmtflags right=0x00000080;
+        constexpr fmtflags scientific=0x00000100;
+        constexpr fmtflags showbase=0x00000200;
+        constexpr fmtflags showpoint=0x00000400;
+        constexpr fmtflags showpos=0x00000800;
+        constexpr fmtflags skipws=0x00001000;
+        constexpr fmtflags unitbuf=0x00002000;
+        constexpr fmtflags uppercase=0x00004000;
+        constexpr fmtflags adjustfield=0x00008000;
+        constexpr fmtflags basefield=0x00010000;
+        constexpr fmtflags floatfield=0x00020000;
+    };
+
+    template<class CharT, class traits=char_traits<CharT>>class basic_ios
+    {
+        
+    };
+}
